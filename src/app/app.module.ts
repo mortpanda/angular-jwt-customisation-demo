@@ -40,11 +40,12 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {LandingComponent} from 'app/landing/landing.component';
 import {FooterComponent} from 'app/shared/footer/footer.component';
-import { LoginComponent } from 'app/login/login.component';
-import { SamplePageComponent } from './sample-page/sample-page.component';
-//import { AuthNoticeComponent } from './auth-notice/auth-notice.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AuthNoticeComponent } from './auth-notice/auth-notice.component';
+import { StartpageComponent } from './startpage/startpage.component';
+import { Widget1Component } from './widgets/widget1/widget1.component';
+import { Widget2Component } from './widgets/widget2/widget2.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -52,9 +53,11 @@ import { AuthNoticeComponent } from './auth-notice/auth-notice.component';
     NavbarComponent,
     FooterComponent,
     LandingComponent,
-    LoginComponent,
-    SamplePageComponent,
     AuthNoticeComponent,
+    StartpageComponent,
+    Widget1Component,
+    Widget2Component,
+    TestComponent,
     //AuthNoticeComponent,
    
     

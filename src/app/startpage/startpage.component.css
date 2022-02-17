@@ -13,13 +13,14 @@
 }
 
 .item {
-  width: 300px;
-  height: 300px;
+  width: 450px!important;
+  height: 600px!important;
   background-color: #ffffff;
   margin: 5px;
   border-radius: 5px!important;
   font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
  "Cantarell", "Helvetica Neue", sans-serif!important;
+ margin-top: 20px!important;
 }
 
 .fxcontainer {
@@ -28,12 +29,13 @@
   color: #00297a;
    display: flex!important;
   overflow:auto;
-  margin-top: 30px!important;
+  margin-top: 70px!important;
   
 }
 
 .userNameItem{
-  height: auto!important;
+  margin-top: 20px!important;
+  height: 20px!important;
   background-color: transparent!important;
   color: #FFFFFF!important;
  align-items: center!important;
@@ -49,4 +51,18 @@
 .fxcontainer{
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+}
+
+.divHead{
+  align-items: center!important;
+ font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
+ "Cantarell", "Helvetica Neue", sans-serif!important;
+ font-size: 20px!important;
+ font-weight: 700!important;
+ background-color: #00297A;
+ color: #FFFFFF!important;
+ margin: 5px!important;
+ border-radius: 5px!important;
+ padding: 10px!important;
+ text-align: center!important;
 }

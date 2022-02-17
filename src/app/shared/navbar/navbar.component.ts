@@ -5,7 +5,7 @@ import {OktaSDKAuthService} from 'app/shared/okta/okta-auth.service';
 import { ViewEncapsulation } from '@angular/core';
 import { ViewChild, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginComponent} from 'app/login/login.component';
+
 
 
 declare const OktaMFA: any;
@@ -101,19 +101,20 @@ export class NavbarComponent implements OnInit {
     //////////////////
     //Login
     //////////////////
-    openLogin() {
-        const dialogConfig = new MatDialogConfig();
-        this.sidebarClose();
-        // 表示するdialogの設定
-        //dialogConfig.disableClose = true;
-        dialogConfig.id = "login-component";
-        // dialogConfig.height = "700px";
-        // dialogConfig.width = "450px";
-        const modalDialog = this._matdialog.open(LoginComponent, dialogConfig);
-      }
+    // openLogin() {
+    //     const dialogConfig = new MatDialogConfig();
+    //     this.sidebarClose();
+    //     // 表示するdialogの設定
+    //     //dialogConfig.disableClose = true;
+    //     dialogConfig.id = "login-component";
+    //     // dialogConfig.height = "700px";
+    //     // dialogConfig.width = "450px";
+    //     const modalDialog = this._matdialog.open(LoginComponent, dialogConfig);
+    //   }
 
       Logout(){
-          this.OktaSDKAuthService.OktaSDKAuthClient.signOut()
+          this.OktaSDKAuthService.OktaSDKAuthClient_1.signOut()
+          this.OktaSDKAuthService.OktaSDKAuthClient_2.signOut()
           //window.location.replace('/');
       }
 
