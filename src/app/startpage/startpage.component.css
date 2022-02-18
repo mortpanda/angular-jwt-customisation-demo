@@ -3,46 +3,47 @@
   text-align: center !important;
   white-space: pre-line;
   font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
- "Cantarell", "Helvetica Neue", sans-serif!important;
+    "Cantarell", "Helvetica Neue", sans-serif !important;
 }
 
-.userContainer{
-  display: block!important;
-  white-space: pre-line;font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
-  "Cantarell", "Helvetica Neue", sans-serif!important;
+.userContainer {
+  display: block !important;
+  white-space: pre-line;
+  font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
+    "Cantarell", "Helvetica Neue", sans-serif !important;
 }
 
 .item {
-  width: 450px!important;
-  height: auto!important;
+  width: 600px !important;
+  height: auto !important;
   background-color: #ffffff;
   margin: 5px;
-  border-radius: 5px!important;
+  border-radius: 5px !important;
   font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
- "Cantarell", "Helvetica Neue", sans-serif!important;
- margin-top: 20px!important;
+    "Cantarell", "Helvetica Neue", sans-serif !important;
+  margin-top: 20px !important;
+  /* overflow:scroll!important; */
 }
 
 .fxcontainer {
   width: 90%;
-  height: auto!important;
-  min-height: 500px!important;
-  /* height: 80vh!important; */
+  /* height: auto!important; */
+  min-height: 500px !important;
+  height: 80vh !important;
   color: #00297a;
-   display: flex!important;
-  overflow:auto;
-  margin-top: 70px!important;
-  
+  display: flex !important;
+  overflow: auto;
+  margin-top: 70px !important;
 }
 
-.userNameItem{
-  margin-top: 20px!important;
-  height: 20px!important;
-  background-color: transparent!important;
-  color: #FFFFFF!important;
- align-items: center!important;
- font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
- "Cantarell", "Helvetica Neue", sans-serif!important;
+.userNameItem {
+  margin-top: 20px !important;
+  height: 20px !important;
+  background-color: transparent !important;
+  color: #ffffff !important;
+  align-items: center !important;
+  font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
+    "Cantarell", "Helvetica Neue", sans-serif !important;
 }
 
 /* Hide the scrollbar byu still allow scroll : Chrome, Safari and Opera */
@@ -50,21 +51,84 @@
   display: none;
 }
 /* Hide the scrollbar byu still allow scroll :  IE, Edge and Firefox */
-.fxcontainer{
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+.fxcontainer {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
-.divHead{
-  align-items: center!important;
- font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
- "Cantarell", "Helvetica Neue", sans-serif!important;
- font-size: 20px!important;
- font-weight: 700!important;
- background-color: #00297A;
- color: #FFFFFF!important;
- margin: 5px!important;
- border-radius: 5px!important;
- padding: 10px!important;
- text-align: center!important;
+.divHead {
+  align-items: center !important;
+  font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
+    "Cantarell", "Helvetica Neue", sans-serif !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  background-color: #00297a;
+  color: #ffffff !important;
+  margin: 5px !important;
+  border-radius: 5px !important;
+  padding: 10px !important;
+  text-align: center !important;
+}
+
+.UserinfoContainer {
+  text-align: center !important;
+  align-items: center !important;
+}
+
+.JWTheading {
+  font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
+    "Cantarell", "Helvetica Neue", sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: #00297a;
+  margin-top: 20px !important;
+}
+
+.jsonContainer {
+  border-radius: 5px !important;
+  /* width: 100%!important; */
+  margin-left: 5px !important;
+  margin-right: 5px !important;
+  margin-top: 15px !important;
+  word-wrap: normal !important;
+  background-color: black !important;
+}
+
+.jsonJWT {
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  text-align: left !important;
+  font-family: "Lucida Console", "Lucida Sans Typewriter", "monaco", "Bitstream Vera Sans Mono", monospace !important;
+  font-size: 10px !important;
+}
+
+.attributeHead {
+  color: #44abbe !important;
+  font-weight: 600 !important;
+}
+
+.jwtcolon {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+.tokenAttribute {
+  color: #44be92 !important;
+  font-weight: 600 !important;
+}
+
+.indentLevel1 {
+  padding-left:1em;
+	text-indent:-1em;
+  
+}
+
+.indentLevel2{
+  padding-left:2em;
+	text-indent:-2em;
+}
+
+.integerAtt{
+  color: #B144BE!important;
 }

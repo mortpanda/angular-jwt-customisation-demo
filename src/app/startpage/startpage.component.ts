@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
 import { OktaWidget1Service } from 'app/shared/okta/okta-widget-1.service';
-import {OktaGetUserService} from 'app/shared/okta/okta-get-user.service';
+// import {OktaGetUserService} from 'app/shared/okta/okta-get-user.service';
+import { OktaConfigService } from 'app/shared/okta/okta-config.service';
 
 @Component({
   selector: 'app-startpage',
@@ -12,34 +13,47 @@ import {OktaGetUserService} from 'app/shared/okta/okta-get-user.service';
 export class StartpageComponent implements OnInit {
   widget1_tokens: boolean = false;
   widget1_idtoken;
-  widget1_accesstoken;
+  widget1_accesstokens;
+  access_code_1;
 
   constructor(
     public OktaWidget1Service: OktaWidget1Service,
-    public OktaGetUserService:OktaGetUserService,
+    // public OktaGetUserService:OktaGetUserService,
+    public OktaConfigService:OktaConfigService,
   ) { }
 
-  ngOnInit() {
-    // this.widget1_tokens = false;
-    this.widget1_accesstoken = localStorage.getItem('okta_siw_1_accesstoken');
-    this.widget1_idtoken = localStorage.getItem('okta_siw_1_idtoken');
+  arrThisUser_1;
+  siw_1_name;
 
-    switch (this.widget1_accesstoken) {
+  async ngOnInit() {
+    this.widget1_accesstokens =  localStorage.getItem('okta_siw_1_accesstoken');
+    this.widget1_idtoken =  localStorage.getItem('okta_siw_1_idtoken');   
+    // this.access_code_1 = JSON.parse(this.widget1_accesstokens);
+    console.log(JSON.parse(this.widget1_accesstokens));   
+    switch (this.widget1_accesstokens) {
       case null: {
         this.widget1_tokens = false;
-
         break;
       }
       default: {
-        // console.log(this.widget1_accesstoken)
         this.widget1_tokens = true;
+        this.arrThisUser_1 = JSON.parse(this.widget1_accesstokens);
+        this.siw_1_name = this.arrThisUser_1.claims.sub;
+        // await this.OktaGetUserService.GetMe(this.OktaConfigService.SIW1strUserInfo,this.access_code_1.accessToken)
+        // await console.log(this.OktaGetUserService.strThisUserInfo);
+        // localStorage.setItem('okta_siw_1_userinfo',JSON.stringify(this.OktaGetUserService.strThisUserInfo));
 
+        // this.arrThisUser_1 = JSON.parse(localStorage.getItem('okta_siw_1_userinfo'));
+        // console.log(this.arrThisUser_1)
+
+        // this.siw_1_name = this.arrThisUser_1.sub
+        // console.log(this.siw_1_name)
         break;
       }
     }
-    // console.log(this.widget1_tokens)
-
-
   }
 
+
+  
 }
+

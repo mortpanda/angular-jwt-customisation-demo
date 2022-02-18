@@ -21,6 +21,7 @@ export class OktaWidget1Service {
   public idToken;
   public LogoutURI = this.OktaConfig.SIW1strPostLogoutURL;
   widget1_id = [];
+  AccessToken_1;
 
   constructor(private router: Router, private OktaConfig: OktaConfigService) { }
 
@@ -30,7 +31,7 @@ export class OktaWidget1Service {
     return authenticated;
   }
 
-  mySession;
+  
   async login1() {
     const OktaClientID = this.OktaConfig.SIW1strClientID;
     const OktaBaseURI = this.OktaConfig.SIW1strBaseURI;
@@ -63,8 +64,8 @@ export class OktaWidget1Service {
       },
 
     });
-    console.log(OktaScope)
-    this.mySession = await oktaSignIn.showSignInToGetTokens({
+    // console.log(OktaScope)
+    await oktaSignIn.showSignInToGetTokens({
       el: '#okta-signin-container-1'
     }).then(function (tokens) {
 
@@ -74,14 +75,13 @@ export class OktaWidget1Service {
       console.log("Hello, " + idToken.claims.email + "! You just logged in! :)");
       // console.log(tokens.accessToken);
       // console.log(tokens.idToken);
-
       localStorage.setItem("okta_siw_1_accesstoken", JSON.stringify(tokens.accessToken));
       localStorage.setItem("okta_siw_1_idtoken", JSON.stringify(tokens.idToken));
 
-      this.widget1_id = tokens.idToken;
+      // this.widget1_id = tokens.idToken;
       // console.log(this.widget1_id)
-
-      // window.location.replace(OktaRedirect);
+      
+      window.location.replace(OktaRedirect);
       return true;
 
     }).catch(function (err) {
@@ -90,7 +90,9 @@ export class OktaWidget1Service {
     });
     //console.log('MFA Status : ' + myMFADone)
     // this.strMFAStatus = myMFADone;
-    console.log(this.mySession);
+    // console.log(this.mySession);
+
+    //AccessToken_1;
   }
 
 

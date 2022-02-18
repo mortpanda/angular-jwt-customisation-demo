@@ -5,6 +5,7 @@ import {OktaSDKAuthService} from 'app/shared/okta/okta-auth.service';
 import { ViewEncapsulation } from '@angular/core';
 import { ViewChild, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {OktaAuth2Service} from 'app/shared/okta/okta-auth-2.service'
 
 
 
@@ -33,8 +34,11 @@ export class NavbarComponent implements OnInit {
         private element: ElementRef,
         public _matdialog: MatDialog, 
         private router: Router,
-        public OktaSDKAuthService:OktaSDKAuthService) {
+        public OktaSDKAuthService:OktaSDKAuthService,
+        public OktaAuth2Service:OktaAuth2Service,
+        ) {
         this.sidebarVisible = false;
+        
     }
 
     ngOnInit() {
@@ -113,13 +117,18 @@ export class NavbarComponent implements OnInit {
     //   }
 
       Logout(){
-          this.OktaSDKAuthService.OktaSDKAuthClient_1.signOut()
-          this.OktaSDKAuthService.OktaSDKAuthClient_2.signOut()
-
-          localStorage.removeItem("okta_siw_1_accesstoken");
+          try{
+            localStorage.removeItem("okta_siw_1_accesstoken");
             localStorage.removeItem("okta_siw_1_idtoken");
-          //window.location.replace('/');
+            localStorage.removeItem("okta_siw_1_userinfo");
+            
+            this.OktaSDKAuthService.OktaSDKAuthClient_1.signOut()
+          this.OktaAuth2Service.OktaSDKAuthClient_2.signOut();
+
+          
+        }catch(e){
       }
+    }
 
     // //////////////////
     // Widget Login
