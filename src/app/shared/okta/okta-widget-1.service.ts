@@ -20,7 +20,7 @@ export class OktaWidget1Service {
   public oktaSignIn;
   public idToken;
   public LogoutURI = this.OktaConfig.SIW1strPostLogoutURL;
-  // public strMFAStatus;
+  widget1_id = [];
 
   constructor(private router: Router, private OktaConfig: OktaConfigService) { }
 
@@ -30,10 +30,11 @@ export class OktaWidget1Service {
     return authenticated;
   }
 
+  mySession;
   async login1() {
     const OktaClientID = this.OktaConfig.SIW1strClientID;
     const OktaBaseURI = this.OktaConfig.SIW1strBaseURI;
-    const OktaLang = this.OktaConfig.SIW1strLang;  
+    const OktaLang = this.OktaConfig.SIW1strLang;
     const OktaRedirect = this.OktaConfig.SIW1strRedirectURL;
     const OktaBrand = this.OktaConfig.SIW1strBrand;
     const OktaPostlogoutURI = this.OktaConfig.SIW1strPostLogoutURL;
@@ -60,10 +61,10 @@ export class OktaWidget1Service {
         pkce: false,
         prompt: OktaResMode
       },
-      
+
     });
     console.log(OktaScope)
-    await oktaSignIn.showSignInToGetTokens({
+    this.mySession = await oktaSignIn.showSignInToGetTokens({
       el: '#okta-signin-container-1'
     }).then(function (tokens) {
 
@@ -71,7 +72,16 @@ export class OktaWidget1Service {
       oktaSignIn.remove();
       const idToken = tokens.idToken;
       console.log("Hello, " + idToken.claims.email + "! You just logged in! :)");
-      window.location.replace(OktaRedirect);
+      // console.log(tokens.accessToken);
+      // console.log(tokens.idToken);
+
+      localStorage.setItem("okta_siw_1_accesstoken", JSON.stringify(tokens.accessToken));
+      localStorage.setItem("okta_siw_1_idtoken", JSON.stringify(tokens.idToken));
+
+      this.widget1_id = tokens.idToken;
+      // console.log(this.widget1_id)
+
+      // window.location.replace(OktaRedirect);
       return true;
 
     }).catch(function (err) {
@@ -80,42 +90,43 @@ export class OktaWidget1Service {
     });
     //console.log('MFA Status : ' + myMFADone)
     // this.strMFAStatus = myMFADone;
+    console.log(this.mySession);
   }
 
-  
- 
-CloseWidget1() {
-  const OktaClientID = this.OktaConfig.SIW1strClientID;
-  const OktaBaseURI = this.OktaConfig.SIW1strBaseURI;
-  const OktaLang = this.OktaConfig.SIW1strLang;
-  const OktaRedirect = this.OktaConfig.SIW1strRedirectURL;
-  const OktaBrand = this.OktaConfig.SIW1strBrand;
-  const OktaPostlogoutURI = this.OktaConfig.SIW1strPostLogoutURL;
-  const OktaIssuer = this.OktaConfig.SIW1strIssuer;
-  const OktaScope = this.OktaConfig.SIW1strScope;
-  const OktaResType = this.OktaConfig.SIW1strResponseType;
-  const OktaResMode = this.OktaConfig.SIW1strResponseMode;
-  var oktaSignIn = new OktaSignIn({
-    clientId: OktaClientID,
-    baseUrl: OktaBaseURI,
-    language: OktaLang,
-    redirectUri: OktaRedirect,
-    colors: {
-      brand: OktaBrand,
-    },
-    postLogoutRedirectUri: OktaPostlogoutURI,
-    authParams: {
-      issuer: OktaIssuer,
-      responseMode: 'fragment',
-      responseType: OktaResType,
-      scopes: OktaScope,
-      pkce: false,
-      prompt: OktaResMode
-    },
-  });
-  oktaSignIn.remove();
 
-}
+
+  CloseWidget1() {
+    const OktaClientID = this.OktaConfig.SIW1strClientID;
+    const OktaBaseURI = this.OktaConfig.SIW1strBaseURI;
+    const OktaLang = this.OktaConfig.SIW1strLang;
+    const OktaRedirect = this.OktaConfig.SIW1strRedirectURL;
+    const OktaBrand = this.OktaConfig.SIW1strBrand;
+    const OktaPostlogoutURI = this.OktaConfig.SIW1strPostLogoutURL;
+    const OktaIssuer = this.OktaConfig.SIW1strIssuer;
+    const OktaScope = this.OktaConfig.SIW1strScope;
+    const OktaResType = this.OktaConfig.SIW1strResponseType;
+    const OktaResMode = this.OktaConfig.SIW1strResponseMode;
+    var oktaSignIn = new OktaSignIn({
+      clientId: OktaClientID,
+      baseUrl: OktaBaseURI,
+      language: OktaLang,
+      redirectUri: OktaRedirect,
+      colors: {
+        brand: OktaBrand,
+      },
+      postLogoutRedirectUri: OktaPostlogoutURI,
+      authParams: {
+        issuer: OktaIssuer,
+        responseMode: 'fragment',
+        responseType: OktaResType,
+        scopes: OktaScope,
+        pkce: false,
+        prompt: OktaResMode
+      },
+    });
+    oktaSignIn.remove();
+
+  }
 
 }
 

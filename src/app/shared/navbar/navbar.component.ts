@@ -115,6 +115,9 @@ export class NavbarComponent implements OnInit {
       Logout(){
           this.OktaSDKAuthService.OktaSDKAuthClient_1.signOut()
           this.OktaSDKAuthService.OktaSDKAuthClient_2.signOut()
+
+          localStorage.removeItem("okta_siw_1_accesstoken");
+            localStorage.removeItem("okta_siw_1_idtoken");
           //window.location.replace('/');
       }
 

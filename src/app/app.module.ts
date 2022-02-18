@@ -45,7 +45,7 @@ import { AuthNoticeComponent } from './auth-notice/auth-notice.component';
 import { StartpageComponent } from './startpage/startpage.component';
 import { Widget1Component } from './widgets/widget1/widget1.component';
 import { Widget2Component } from './widgets/widget2/widget2.component';
-import { TestComponent } from './test/test.component';
+
 
 @NgModule({
   declarations: [
@@ -57,8 +57,7 @@ import { TestComponent } from './test/test.component';
     StartpageComponent,
     Widget1Component,
     Widget2Component,
-    TestComponent,
-    //AuthNoticeComponent,
+    
    
     
   ],

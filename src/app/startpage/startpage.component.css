@@ -14,7 +14,7 @@
 
 .item {
   width: 450px!important;
-  height: 600px!important;
+  height: auto!important;
   background-color: #ffffff;
   margin: 5px;
   border-radius: 5px!important;
@@ -25,7 +25,9 @@
 
 .fxcontainer {
   width: 90%;
-  height: 80vh!important;
+  height: auto!important;
+  min-height: 500px!important;
+  /* height: 80vh!important; */
   color: #00297a;
    display: flex!important;
   overflow:auto;
