@@ -129,6 +129,16 @@
 	text-indent:-2em;
 }
 
+.indentLeve3{
+  padding-left:3em;
+	text-indent:-3em;
+}
+
+.indentLeve4{
+  padding-left:3em;
+	text-indent:-3em;
+}
+
 .integerAtt{
   color: #B144BE!important;
 }
