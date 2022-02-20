@@ -106,16 +106,20 @@
 .attributeHead {
   color: #44abbe !important;
   font-weight: 600 !important;
+  min-width : 60px!important;
+  margin-left: 10px!important;
 }
 
 .jwtcolon {
   color: #ffffff !important;
   font-weight: 600 !important;
+  width : 100px!important;
 }
 
 .tokenAttribute {
   color: #44be92 !important;
   font-weight: 600 !important;
+  width : 5500px!important;
 }
 
 .indentLevel1 {

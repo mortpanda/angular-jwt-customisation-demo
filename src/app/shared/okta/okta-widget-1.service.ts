@@ -43,9 +43,9 @@ export class OktaWidget1Service {
     const OktaScope = this.OktaConfig.SIW1strScope;
     const OktaResType = this.OktaConfig.SIW1strResponseType;
     const OktaResMode = this.OktaConfig.SIW1strResponseMode;
-    const OktaWidgetLogo = this.OktaConfig.SIW1strLogo;
+    // const OktaWidgetLogo = this.OktaConfig.SIW1strLogo;
     var oktaSignIn = new OktaSignIn({
-      logo: OktaWidgetLogo,
+      // logo: OktaWidgetLogo,
       clientId: OktaClientID,
       baseUrl: OktaBaseURI,
       language: OktaLang,
@@ -119,7 +119,7 @@ export class OktaWidget1Service {
       postLogoutRedirectUri: OktaPostlogoutURI,
       authParams: {
         issuer: OktaIssuer,
-        responseMode: 'fragment',
+        responseMode: OktaResMode,
         responseType: OktaResType,
         scopes: OktaScope,
         pkce: false,
