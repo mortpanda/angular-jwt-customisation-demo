@@ -152,8 +152,24 @@
   color: #B144BE!important;
 }
 
-.attExpiry{
+.attExpiry, .customClaim{
   background: yellowgreen!important;
   color: black!important;
   font-weight: 600!important;
 }
+
+.divHead2 {
+  align-items: center !important;
+  font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
+    "Cantarell", "Helvetica Neue", sans-serif !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  background-color: #3C2B57;
+  color: #ffffff !important;
+  margin: 5px !important;
+  border-radius: 5px !important;
+  padding: 10px !important;
+  text-align: center !important;
+}
+
+/* #3C2B57 */
