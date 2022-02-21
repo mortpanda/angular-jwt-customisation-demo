@@ -156,6 +156,7 @@
   background: yellowgreen!important;
   color: black!important;
   font-weight: 600!important;
+  color: red!important;
 }
 
 .divHead2 {
@@ -172,4 +173,21 @@
   text-align: center !important;
 }
 
+.titleBar{
+  height: 30px!important;
+  background: grey!important;
+  border-top-left-radius: 5px!important;
+  border-top-right-radius: 5px!important;
+  padding-top: 5px!important;
+  text-align: right!important;
+}
+
+.dot1 {
+  height: 10px;
+  width: 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px!important;
+}
 /* #3C2B57 */
