@@ -45,6 +45,7 @@ import { AuthNoticeComponent } from './auth-notice/auth-notice.component';
 import { StartpageComponent } from './startpage/startpage.component';
 import { Widget1Component } from './widgets/widget1/widget1.component';
 import { Widget2Component } from './widgets/widget2/widget2.component';
+import { AuthSettingComponent } from './auth-setting/auth-setting.component';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { Widget2Component } from './widgets/widget2/widget2.component';
     StartpageComponent,
     Widget1Component,
     Widget2Component,
+    AuthSettingComponent,
     
    
     
@@ -103,7 +105,9 @@ import { Widget2Component } from './widgets/widget2/widget2.component';
   ],
   providers: [
     OktaSDKAuthService,    
-    Widget1Component,StartpageComponent,
+    Widget1Component,
+    StartpageComponent,
+    AuthSettingComponent,
   ], 
 
   

@@ -3,6 +3,8 @@ import { ViewEncapsulation } from '@angular/core';
 import { OktaWidget1Service } from 'app/shared/okta/okta-widget-1.service';
 // import {OktaGetUserService} from 'app/shared/okta/okta-get-user.service';
 import { OktaConfigService } from 'app/shared/okta/okta-config.service';
+import {AuthSettingComponent} from 'app/auth-setting/auth-setting.component';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-startpage',
@@ -29,6 +31,8 @@ export class StartpageComponent implements OnInit {
     public OktaWidget1Service: OktaWidget1Service,
     // public OktaGetUserService:OktaGetUserService,
     public OktaConfigService:OktaConfigService,
+    public AuthSettingComponent:AuthSettingComponent,
+    public _matdialog: MatDialog,
   ) { }
 
   
@@ -85,7 +89,12 @@ export class StartpageComponent implements OnInit {
 
   }
 
-
+  AuthServerSetting(){
+    const WidgetDialogConfig = new MatDialogConfig();
+    WidgetDialogConfig.disableClose = false;
+    WidgetDialogConfig.id = "auth-server-setting";
+    const modalDialog = this._matdialog.open(AuthSettingComponent, WidgetDialogConfig);
+  }
   
 }
 

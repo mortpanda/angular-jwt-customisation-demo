@@ -71,6 +71,7 @@
       <div class="divHead2">
         From Okta Sign-in Widget 2
       </div>
+      <div *ngIf="widget2_tokens; else notShow">
       <div class="UserinfoContainer">
         <a class="JWTheading">カスタムClaimsが設定されているAccess Token</a>
       </div>
@@ -133,8 +134,12 @@
           <a class="attributeHead indentLevel1">userinfoUrl : </a>
           <a class="tokenAttribute">{{ arrThisUser_2.userinfoUrl }}</a> <br />
         </p>
+
+        
       </div>
-      <div *ngIf="widget2_tokens; else notShow">
+      <div class="buttonDiv">
+        <a class="btn btn-reg-danger btn-round" class="btn btn-danger btn-round" id="logout" (click)="AuthServerSetting()">認可サーバーの設定</a>
+      </div>
       </div>
       <ng-template #notShow>
         <app-widget2></app-widget2>

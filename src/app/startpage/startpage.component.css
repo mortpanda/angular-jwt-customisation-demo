@@ -190,4 +190,8 @@
   display: inline-block;
   margin-right: 5px!important;
 }
-/* #3C2B57 */
+
+.buttonDiv{
+  text-align: center!important;
+  
+}
