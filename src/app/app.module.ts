@@ -103,6 +103,7 @@ import { Widget2Component } from './widgets/widget2/widget2.component';
   ],
   providers: [
     OktaSDKAuthService,    
+    Widget1Component,StartpageComponent,
   ], 
 
   

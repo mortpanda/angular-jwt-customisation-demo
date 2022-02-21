@@ -15,8 +15,8 @@ export class Widget2Component implements OnInit {
   ) { }
 
   ngOnInit(){
-    this.OktaWidget2Service.CloseWidget();
-    this.OktaWidget2Service.login2();
+    this.OktaWidget2Service.CloseWidget2(['openid', 'email', 'profile', 'address', 'scpApprover']);
+    this.OktaWidget2Service.login2(['openid', 'email', 'profile', 'address', 'scpApprover']);
   }
 
 }

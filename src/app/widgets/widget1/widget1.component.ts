@@ -21,8 +21,8 @@ export class Widget1Component implements OnInit {
   ) { }
 
   async ngOnInit(){
-    await this.OktaWidget1Service.CloseWidget1();
-    await this.OktaWidget1Service.login1();
+    await this.OktaWidget1Service.CloseWidget1(['openid', 'email', 'profile', 'address']);
+    await this.OktaWidget1Service.login1(['openid', 'email', 'profile', 'address']);
     // await this.OktaGetUserService.GetMe(this.OktaConfigService.SIW1strUserInfo,this.StartpageComponent.widget1_accesstoken.accessToken)
   }
 

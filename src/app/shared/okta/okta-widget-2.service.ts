@@ -11,114 +11,117 @@ import { OktaConfigService } from "./okta-config.service";
 })
 
 export class OktaWidget2Service {
-  private authClient2 = new OktaAuth({
-    issuer: this.OktaConfig.SIW2strIssuer,
-    clientId: this.OktaConfig.SIW2strClientID,
+  private authClient = new OktaAuth({
+    issuer: this.OktaConfig.SIW1strIssuer,
+    clientId: this.OktaConfig.SIW1strClientID,
   });
   public isAuthenticated = new BehaviorSubject<boolean>(false);
   public strstateToken;
-  public oktaSignIn2;
+  public oktaSignIn;
   public idToken;
-  public LogoutURI = this.OktaConfig.SIW2strPostLogoutURL;
-  public strMFAStatus;
+  public LogoutURI = this.OktaConfig.SIW1strPostLogoutURL;
+  widget1_id = [];
+  AccessToken_1;
 
   constructor(private router: Router, private OktaConfig: OktaConfigService) { }
 
   async checkAuthenticated() {
-    const authenticated = await this.authClient2.session.exists();
+    const authenticated = await this.authClient.session.exists();
     this.isAuthenticated.next(authenticated);
     return authenticated;
   }
 
-  async login2() {
-    const OktaClientID2 = this.OktaConfig.SIW2strClientID;
-    const OktaBaseURI2 = this.OktaConfig.SIW2strBaseURI;
-    const OktaLang2 = this.OktaConfig.SIW2strLang;  
-    const OktaRedirect2 = this.OktaConfig.SIW2strRedirectURL;
-    const OktaBrand2 = this.OktaConfig.SIW2strBrand;
-    const OktaPostlogoutURI2 = this.OktaConfig.SIW2strPostLogoutURL;
-    const OktaIssuer2 = this.OktaConfig.SIW2strIssuer;
-    const OktaScope2 = this.OktaConfig.SIW2strScope;
-    const OktaResType2 = this.OktaConfig.SIW2strResponseType;
-    const OktaResMode2 = this.OktaConfig.SIW2strResponseMode;
-    const OktaWidgetLogo2 = this.OktaConfig.SIW2strLogo;
-    var oktaSignIn2 = new OktaSignIn({
-      logo: OktaWidgetLogo2,
-      clientId: OktaClientID2,
-      baseUrl: OktaBaseURI2,
-      language: OktaLang2,
-      redirectUri: OktaRedirect2,
+  
+  async login2(scope) {
+    const OktaClientID = this.OktaConfig.SIW1strClientID;
+    const OktaBaseURI = this.OktaConfig.SIW1strBaseURI;
+    const OktaLang = this.OktaConfig.SIW1strLang;
+    const OktaRedirect = this.OktaConfig.SIW1strRedirectURL;
+    const OktaBrand = this.OktaConfig.SIW1strBrand;
+    const OktaPostlogoutURI = this.OktaConfig.SIW1strPostLogoutURL;
+    const OktaIssuer = this.OktaConfig.SIW1strIssuer;
+    // const OktaScope = this.OktaConfig.SIW1strScope;
+    const OktaScope = scope;
+    const OktaResType = this.OktaConfig.SIW1strResponseType;
+    const OktaResMode = this.OktaConfig.SIW1strResponseMode;
+    const OktaWidgetLogo = this.OktaConfig.SIW1strLogo;
+    var oktaSignIn = new OktaSignIn({
+      logo: OktaWidgetLogo,
+      clientId: OktaClientID,
+      baseUrl: OktaBaseURI,
+      language: OktaLang,
+      redirectUri: OktaRedirect,
       colors: {
-        brand: OktaBrand2,
+        brand: OktaBrand,
       },
-      postLogoutRedirectUri: OktaPostlogoutURI2,
+      postLogoutRedirectUri: OktaPostlogoutURI,
       authParams: {
-        issuer: OktaIssuer2,
+        issuer: OktaIssuer,
         responseMode: 'fragment',
-        responseType: OktaResType2,
-        scopes: OktaScope2,
+        responseType: OktaResType,
+        scopes: OktaScope,
         pkce: false,
-        prompt: OktaResMode2
+        prompt: OktaResMode
       },
-      
+
     });
-    console.log(OktaScope2)
-    oktaSignIn2.showSignInToGetTokens({
-      el: '#okta-signin-container-2'
+    // console.log(OktaScope)
+    await oktaSignIn.showSignInToGetTokens({
+      el: '#okta-signin-container'
     }).then(function (tokens) {
 
-      oktaSignIn2.authClient2.tokenManager.setTokens(tokens);
-      oktaSignIn2.remove();
+      oktaSignIn.authClient.tokenManager.setTokens(tokens);
+      oktaSignIn.remove();
       const idToken = tokens.idToken;
       console.log("Hello, " + idToken.claims.email + "! You just logged in! :)");
-      window.location.replace(OktaRedirect2);
+      localStorage.setItem("okta_siw_2_accesstoken", JSON.stringify(tokens.accessToken));
+      localStorage.setItem("okta_siw_2_idtoken", JSON.stringify(tokens.idToken));
+      
+      window.location.replace(OktaRedirect);
       return true;
 
     }).catch(function (err) {
       console.error(err);
       return false;
     });
-    //console.log('MFA Status : ' + myMFADone)
-    // this.strMFAStatus = myMFADone;
+
   }
 
-  
- 
-CloseWidget() {
-  const OktaClientID2 = this.OktaConfig.SIW2strClientID;
-  const OktaBaseURI2 = this.OktaConfig.SIW2strBaseURI;
-  const OktaLang2 = this.OktaConfig.SIW2strLang;  
-  const OktaRedirect2 = this.OktaConfig.SIW2strRedirectURL;
-  const OktaBrand2 = this.OktaConfig.SIW2strBrand;
-  const OktaPostlogoutURI2 = this.OktaConfig.SIW2strPostLogoutURL;
-  const OktaIssuer2 = this.OktaConfig.SIW2strIssuer;
-  const OktaScope2 = this.OktaConfig.SIW2strScope;
-  const OktaResType2 = this.OktaConfig.SIW2strResponseType;
-  const OktaResMode2 = this.OktaConfig.SIW2strResponseMode;
-  const OktaWidgetLogo2 = this.OktaConfig.SIW2strLogo;
-  var oktaSignIn2 = new OktaSignIn({
-    logo: OktaWidgetLogo2,
-    clientId: OktaClientID2,
-    baseUrl: OktaBaseURI2,
-    language: OktaLang2,
-    redirectUri: OktaRedirect2,
-    colors: {
-      brand: OktaBrand2,
-    },
-    postLogoutRedirectUri: OktaPostlogoutURI2,
-    authParams: {
-      issuer: OktaIssuer2,
-      responseMode: 'fragment',
-      responseType: OktaResType2,
-      scopes: OktaScope2,
-      pkce: false,
-      prompt: OktaResMode2
-    },
-    
-  });
-  oktaSignIn2.remove();
 
-}
+
+  CloseWidget2(scope) {
+    const OktaClientID = this.OktaConfig.SIW1strClientID;
+    const OktaBaseURI = this.OktaConfig.SIW1strBaseURI;
+    const OktaLang = this.OktaConfig.SIW1strLang;
+    const OktaRedirect = this.OktaConfig.SIW1strRedirectURL;
+    const OktaBrand = this.OktaConfig.SIW1strBrand;
+    const OktaPostlogoutURI = this.OktaConfig.SIW1strPostLogoutURL;
+    const OktaIssuer = this.OktaConfig.SIW1strIssuer;
+    //const OktaScope = this.OktaConfig.SIW1strScope;
+    const OktaScope = scope;
+    const OktaResType = this.OktaConfig.SIW1strResponseType;
+    const OktaResMode = this.OktaConfig.SIW1strResponseMode;
+    var oktaSignIn = new OktaSignIn({
+      clientId: OktaClientID,
+      baseUrl: OktaBaseURI,
+      language: OktaLang,
+      redirectUri: OktaRedirect,
+      colors: {
+        brand: OktaBrand,
+      },
+      postLogoutRedirectUri: OktaPostlogoutURI,
+      authParams: {
+        issuer: OktaIssuer,
+        responseMode: OktaResMode,
+        responseType: OktaResType,
+        scopes: OktaScope,
+        pkce: false,
+        prompt: OktaResMode
+      },
+    });
+    oktaSignIn.remove();
+
+  }
 
 }
 

@@ -32,7 +32,7 @@ export class OktaWidget1Service {
   }
 
   
-  async login1() {
+  async login1(scope) {
     const OktaClientID = this.OktaConfig.SIW1strClientID;
     const OktaBaseURI = this.OktaConfig.SIW1strBaseURI;
     const OktaLang = this.OktaConfig.SIW1strLang;
@@ -40,12 +40,13 @@ export class OktaWidget1Service {
     const OktaBrand = this.OktaConfig.SIW1strBrand;
     const OktaPostlogoutURI = this.OktaConfig.SIW1strPostLogoutURL;
     const OktaIssuer = this.OktaConfig.SIW1strIssuer;
-    const OktaScope = this.OktaConfig.SIW1strScope;
+    // const OktaScope = this.OktaConfig.SIW1strScope;
+    const OktaScope = scope;
     const OktaResType = this.OktaConfig.SIW1strResponseType;
     const OktaResMode = this.OktaConfig.SIW1strResponseMode;
-    // const OktaWidgetLogo = this.OktaConfig.SIW1strLogo;
+    const OktaWidgetLogo = this.OktaConfig.SIW1strLogo;
     var oktaSignIn = new OktaSignIn({
-      // logo: OktaWidgetLogo,
+      logo: OktaWidgetLogo,
       clientId: OktaClientID,
       baseUrl: OktaBaseURI,
       language: OktaLang,
@@ -66,7 +67,7 @@ export class OktaWidget1Service {
     });
     // console.log(OktaScope)
     await oktaSignIn.showSignInToGetTokens({
-      el: '#okta-signin-container-1'
+      el: '#okta-signin-container'
     }).then(function (tokens) {
 
       oktaSignIn.authClient.tokenManager.setTokens(tokens);
@@ -78,9 +79,6 @@ export class OktaWidget1Service {
       localStorage.setItem("okta_siw_1_accesstoken", JSON.stringify(tokens.accessToken));
       localStorage.setItem("okta_siw_1_idtoken", JSON.stringify(tokens.idToken));
 
-      // this.widget1_id = tokens.idToken;
-      // console.log(this.widget1_id)
-      
       window.location.replace(OktaRedirect);
       return true;
 
@@ -88,16 +86,12 @@ export class OktaWidget1Service {
       console.error(err);
       return false;
     });
-    //console.log('MFA Status : ' + myMFADone)
-    // this.strMFAStatus = myMFADone;
-    // console.log(this.mySession);
 
-    //AccessToken_1;
   }
 
 
 
-  CloseWidget1() {
+  CloseWidget1(scope) {
     const OktaClientID = this.OktaConfig.SIW1strClientID;
     const OktaBaseURI = this.OktaConfig.SIW1strBaseURI;
     const OktaLang = this.OktaConfig.SIW1strLang;
@@ -105,7 +99,8 @@ export class OktaWidget1Service {
     const OktaBrand = this.OktaConfig.SIW1strBrand;
     const OktaPostlogoutURI = this.OktaConfig.SIW1strPostLogoutURL;
     const OktaIssuer = this.OktaConfig.SIW1strIssuer;
-    const OktaScope = this.OktaConfig.SIW1strScope;
+    //const OktaScope = this.OktaConfig.SIW1strScope;
+    const OktaScope = scope;
     const OktaResType = this.OktaConfig.SIW1strResponseType;
     const OktaResMode = this.OktaConfig.SIW1strResponseMode;
     var oktaSignIn = new OktaSignIn({

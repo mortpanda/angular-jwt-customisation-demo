@@ -15,6 +15,10 @@ export class StartpageComponent implements OnInit {
   widget1_idtoken;
   widget1_accesstokens;
   access_code_1;
+  
+  widget2_tokens;
+  widget2_accesstokens;
+  widget2_idtoken;
 
   constructor(
     public OktaWidget1Service: OktaWidget1Service,
@@ -26,8 +30,12 @@ export class StartpageComponent implements OnInit {
   siw_1_name;
 
   async ngOnInit() {
+    this.OktaWidget1Service.CloseWidget1(['openid', 'email', 'profile', 'address']);
     this.widget1_accesstokens =  localStorage.getItem('okta_siw_1_accesstoken');
     this.widget1_idtoken =  localStorage.getItem('okta_siw_1_idtoken');   
+
+    
+
     // this.access_code_1 = JSON.parse(this.widget1_accesstokens);
     console.log(JSON.parse(this.widget1_accesstokens));   
     switch (this.widget1_accesstokens) {
@@ -39,6 +47,23 @@ export class StartpageComponent implements OnInit {
         this.widget1_tokens = true;
         this.arrThisUser_1 = JSON.parse(this.widget1_accesstokens);
         this.siw_1_name = this.arrThisUser_1.claims.sub;
+        break;
+      }
+    }
+
+    this.widget2_accesstokens =  localStorage.getItem('okta_siw_2_accesstoken');
+    this.widget2_idtoken =  localStorage.getItem('okta_siw_2_idtoken');   
+    switch (this.widget2_accesstokens) {
+      case null: {
+        console.log("widget 2 false")
+        this.widget2_tokens = false;
+        break;
+      }
+      default: {
+        console.log("widget 2 true")
+        this.widget2_tokens = true;
+        this.arrThisUser_1 = JSON.parse(this.widget1_accesstokens);
+        // this.siw_1_name = this.arrThisUser_1.claims.sub;
         // await this.OktaGetUserService.GetMe(this.OktaConfigService.SIW1strUserInfo,this.access_code_1.accessToken)
         // await console.log(this.OktaGetUserService.strThisUserInfo);
         // localStorage.setItem('okta_siw_1_userinfo',JSON.stringify(this.OktaGetUserService.strThisUserInfo));
@@ -51,6 +76,9 @@ export class StartpageComponent implements OnInit {
         break;
       }
     }
+
+    
+
   }
 
 
