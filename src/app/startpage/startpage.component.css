@@ -100,14 +100,16 @@
   overflow-wrap: break-word !important;
   text-align: left !important;
   font-family: "Lucida Console", "Lucida Sans Typewriter", "monaco", "Bitstream Vera Sans Mono", monospace !important;
-  font-size: 10px !important;
+  font-size: 12px !important;
+  padding-top: 20px!important;
+  padding-bottom: 20px!important;
 }
 
 .attributeHead {
   color: #44abbe !important;
   font-weight: 600 !important;
   min-width : 60px!important;
-  margin-left: 10px!important;
+  margin-left: 5px!important;
 }
 
 .jwtcolon {
@@ -123,14 +125,16 @@
 }
 
 .indentLevel1 {
-  padding-left:1em;
-	text-indent:-1em;
-  
+  padding-left:1em!important;
+	text-indent:-1em!important;
+  /* padding-left: 15px!important; */
+
 }
 
 .indentLevel2{
-  padding-left:2em;
-	text-indent:-2em;
+  padding-left:2em!important;
+	text-indent:-2em!important;
+  /* padding-left: 25px!important; */
 }
 
 .indentLeve3{
