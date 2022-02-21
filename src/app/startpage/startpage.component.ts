@@ -90,10 +90,12 @@ export class StartpageComponent implements OnInit {
   }
 
   AuthServerSetting(){
-    const WidgetDialogConfig = new MatDialogConfig();
-    WidgetDialogConfig.disableClose = false;
-    WidgetDialogConfig.id = "auth-server-setting";
-    const modalDialog = this._matdialog.open(AuthSettingComponent, WidgetDialogConfig);
+    const SettingDialogConfig = new MatDialogConfig();
+    SettingDialogConfig.disableClose = false;
+    SettingDialogConfig.id = "auth-server-setting";
+    SettingDialogConfig.height = "60%";
+    // SettingDialogConfig.width = "450px";
+    const modalDialog = this._matdialog.open(AuthSettingComponent, SettingDialogConfig);
   }
   
 }
