@@ -82,6 +82,7 @@
   font-weight: 700 !important;
   color: #00297a;
   margin-top: 20px !important;
+  
 }
 
 .jsonContainer {
@@ -149,4 +150,10 @@
 
 .integerAtt{
   color: #B144BE!important;
+}
+
+.attExpiry{
+  background: yellowgreen!important;
+  color: black!important;
+  font-weight: 600!important;
 }

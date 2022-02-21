@@ -16,9 +16,14 @@ export class StartpageComponent implements OnInit {
   widget1_accesstokens;
   access_code_1;
   
+  arrThisUser_1;
+  siw_1_name;
+
+
   widget2_tokens;
   widget2_accesstokens;
   widget2_idtoken;
+  arrThisUser_2
 
   constructor(
     public OktaWidget1Service: OktaWidget1Service,
@@ -26,8 +31,7 @@ export class StartpageComponent implements OnInit {
     public OktaConfigService:OktaConfigService,
   ) { }
 
-  arrThisUser_1;
-  siw_1_name;
+  
 
   async ngOnInit() {
     this.OktaWidget1Service.CloseWidget1(['openid', 'email', 'profile', 'address']);
@@ -62,7 +66,7 @@ export class StartpageComponent implements OnInit {
       default: {
         console.log("widget 2 true")
         this.widget2_tokens = true;
-        this.arrThisUser_1 = JSON.parse(this.widget1_accesstokens);
+        this.arrThisUser_2 = JSON.parse(this.widget2_accesstokens);
         // this.siw_1_name = this.arrThisUser_1.claims.sub;
         // await this.OktaGetUserService.GetMe(this.OktaConfigService.SIW1strUserInfo,this.access_code_1.accessToken)
         // await console.log(this.OktaGetUserService.strThisUserInfo);
