@@ -1,9 +1,10 @@
 # angular-jwt-customisation-demo
+This application can be used to demo a default JWT and a customised JWT.
 
 # THIS IS NOT AN OFFICIAL APP.  
 This is was created for personal projects.
 
-# AngularOktaTemplate
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.3.
 
