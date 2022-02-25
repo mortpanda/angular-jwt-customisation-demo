@@ -3,6 +3,7 @@ import { ViewEncapsulation } from '@angular/core';
 import { Widget1Component } from 'app/widgets/widget1/widget1.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
+
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
@@ -15,9 +16,19 @@ export class LandingComponent implements OnInit {
   constructor(
     public Widget1Component: Widget1Component,
     public _matdialog: MatDialog,
+    
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    try{
+      localStorage.removeItem("okta_siw_1_accesstoken");
+      localStorage.removeItem("okta_siw_1_idtoken");
+      localStorage.removeItem("okta_siw_2_accesstoken");
+      localStorage.removeItem("okta_siw_2_idtoken");           
+      // this.OktaSDKAuthService.OktaSDKAuthClient_1.signOut()
+
+  }catch(e){
+}
   }
 
   async widget1Login() {
