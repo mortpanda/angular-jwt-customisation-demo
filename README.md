@@ -1,6 +1,6 @@
-# angular-okta-japan-template-v3
+# angular-jwt-customisation-demo
 
-# THIS IS NOT AN OFFICIAL TEMPLATE.  
+# THIS IS NOT AN OFFICIAL APP.  
 This is was created for personal projects.
 
 # AngularOktaTemplate
@@ -65,4 +65,6 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 ## Screenshots
 <img src="/Capture.PNG" alt="drawing" width="600"/>
+<img src="/Capture1.PNG" alt="drawing" width="600"/>
+
 
